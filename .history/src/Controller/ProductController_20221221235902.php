@@ -17,7 +17,7 @@ class ProductController extends AbstractController
         $products = $paginator->paginate(
             $repository->findAll(),
             $request->query->getInt('page', 1), /*page number*/
-            9 /*limit per page*/
+            10 /*limit per page*/
         );
 
         return $this->render('pages/product/index.html.twig', [

@@ -12,12 +12,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ProductController extends AbstractController
 {
     #[Route('/product', name: 'product')]
-    public function index(ProductRepository $repository, PaginatorInterface $paginator, Request $request): Response
+    public function index(ProductRepository $repository, PaginatorInterface $paginator,  Request $request): Response
     {
         $products = $paginator->paginate(
             $repository->findAll(),
             $request->query->getInt('page', 1), /*page number*/
-            9 /*limit per page*/
+            10 /*limit per page*/
         );
 
         return $this->render('pages/product/index.html.twig', [

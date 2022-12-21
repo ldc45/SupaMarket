@@ -4,20 +4,21 @@ namespace App\Controller;
 
 use App\Repository\ProductRepository;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Loader\Configurator\request;
+use Symfony\Component\HttpFoundation\Request as HttpFoundationRequest;
 
 class ProductController extends AbstractController
 {
     #[Route('/product', name: 'product')]
-    public function index(ProductRepository $repository, PaginatorInterface $paginator, Request $request): Response
+    public function index(ProductRepository $repository, PaginatorInterface $paginator, HttpFoundationRequest): Response
     {
         $products = $paginator->paginate(
             $repository->findAll(),
             $request->query->getInt('page', 1), /*page number*/
-            9 /*limit per page*/
+            10 /*limit per page*/
         );
 
         return $this->render('pages/product/index.html.twig', [
