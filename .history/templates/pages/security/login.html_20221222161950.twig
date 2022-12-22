@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SupaMarket - Connexion{% endblock %}
+
+{% block body %}
+
+<div class="container">
+<h1 class="mt-4">Formulaire de connextion</h1>
+
+<form action="{{path('security.login')}}" method="POST">
+    <div class="form-group">
+      <label for="username" class="form-label mt-4">Adresse email</label>
+      <input type="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="votremail">
+     
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+</form>
+
+</div>
+{% endblock %}
