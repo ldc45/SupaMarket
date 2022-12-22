@@ -1,0 +1,1 @@
+<?phpnamespace A
